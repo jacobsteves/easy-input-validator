@@ -45,8 +45,38 @@
     $('.form-field-validation').each(function() {
       var $form = $(this);
 
-      var validateField = function($field) {
+      var validate = function($field) {
+        $field.addClass('valid-input').removeClass("invalid-input").parent().removeClass('has-error');
+      }
 
+      var invalidate = function($field) {
+        $field.removeClass("valid-input").addClass('invalid-input').parent().addClass('has-error');
+      }
+
+      var createValidationTag = function($field) {
+        $field.after("<div class='validation-msg' style='display:none;'></div>");
+      }
+
+      var runValidations = function($field) {
+        var validationMsg;
+        var isValid = true;
+
+        var classes = $field.attr('class') ? $field.attr('class').split(' ') : [];
+        $(classes).each(function(i, className) {
+          validationMsg = validationMsg || FieldValidator.getValidationMsg($field.val(), className);
+          if (validationMsg) isValid = false;
+        });
+
+        return isValid;
+      }
+
+      var validateField = function($field) {
+        if($input.next('.validation-msg').length === 0) createValidationTag($input);
+        var $vmsg = $input.next('.validation-msg');
+
+        var isValid = runValidations($input);
+        $vmsg.html(validationMsg).toggle(!isValid);
+        (isValid) ? validate($input) : invalidate($input);
       };
 
       var validateAllFields = function() {

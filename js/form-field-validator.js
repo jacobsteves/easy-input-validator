@@ -28,7 +28,7 @@
       return true;
     },
     isEmpty: function(v) {
-      return ((v === null) || (v.length === 0)); // || /^\s+$/.test(v));
+      return ((v === null) || (v.length === 0));
     }
   };
 
@@ -67,45 +67,64 @@
           if (validationMsg) isValid = false;
         });
 
+        $field.next('.validation-msg').html(validationMsg).toggle(!isValid);
         return isValid;
       }
 
       var validateField = function($field) {
-        if($input.next('.validation-msg').length === 0) createValidationTag($input);
-        var $vmsg = $input.next('.validation-msg');
-
-        var isValid = runValidations($input);
-        $vmsg.html(validationMsg).toggle(!isValid);
-        (isValid) ? validate($input) : invalidate($input);
+        if($field.next('.validation-msg').length === 0) createValidationTag($field);
+        var isValid = runValidations($field);
+        (isValid) ? validate($field) : invalidate($field);
       };
 
       var validateAllFields = function() {
         $form.find(':input').each(function() {
           checkField($(this));
         });
-      }
+      };
+
+      var addInputValidators = function() {
+        $form.find(':input').each(function(){
+          var $input = $(this);
+          $input.change(function(e) {
+            checkField($input);
+          });
+        });
+      };
 
       // Disable the submit button if any errors are present
-      $form.change(function(e) {
-        if($form.find('.has-error').length > 0) {
-          $form.find('[type=submit]').addClass('disabled');
-        } else {
-          $form.find('[type=submit]').removeClass('disabled');
-        }
-      });
+      var enableOrDisableSubmit = function() {
+        $form.change(function(e) {
+          if($form.find('.has-error').length > 0) {
+            $form.find('[type=submit]').addClass('disabled');
+          } else {
+            $form.find('[type=submit]').removeClass('disabled');
+          }
+        });
+      };
 
       // Validate all fields upon submit
-      $form.on('submit', function() {
-        var $submit = $form.find('[type=submit]');
-        validateAllFields();
-        if($form.find('.has-error').length > 0) {
-          $submit.addClass('disabled');
-          return false;
-        } else {
-          $submit.removeClass('disabled');
-          return true;
-        }
-      });
+      var validateFieldsOnSubmit = function() {
+        $form.on('submit', function() {
+          var $submit = $form.find('[type=submit]');
+          validateAllFields();
+          if($form.find('.has-error').length > 0) {
+            $submit.addClass('disabled');
+            return false;
+          } else {
+            $submit.removeClass('disabled');
+            return true;
+          }
+        });
+      };
+
+      var init = function() {
+        addInputValidators();
+        enableOrDisableSubmit();
+        validateFieldsOnSubmit();
+      }
+
+      init();
     });
   };
 

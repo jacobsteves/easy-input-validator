@@ -1,18 +1,18 @@
 
 (function($) {
-  var FieldValidator = {
+  this.EasyValidator = {
     validators: [],
     add: function(name, msg, validatorFunc) {
-      FieldValidator.validators.push({name: name, msg: msg, do: validatorFunc});
+      EasyValidator.validators.push({name: name, msg: msg, do: validatorFunc});
     },
-    addArr: function(arr) {
+    addValidations: function(arr) {
       for (var i = 0; i < arr.length; i++) {
-        FieldValidator.validators.push(arr[i]);
+        EasyValidator.validators.push(arr[i]);
       }
     },
     getValidationMsg: function(val, className) {
-      for (var i = FieldValidator.validators.length - 1; i >= 0; i--) {
-        var validator = FieldValidator.validators[i];
+      for (var i = EasyValidator.validators.length - 1; i >= 0; i--) {
+        var validator = EasyValidator.validators[i];
         if (validator.name != className) continue;
         if (!validator.do(val)) return validator.msg;
         return null;
@@ -20,8 +20,8 @@
       return null;
     },
     isValid: function(val, className) {
-      for (var i = FieldValidator.validators.length - 1; i >= 0; i--) {
-        var validator = FieldValidator.validators[i];
+      for (var i = EasyValidator.validators.length - 1; i >= 0; i--) {
+        var validator = EasyValidator.validators[i];
         if (validator.name != className) continue;
         return !!validator.do(val);
       }
@@ -35,7 +35,7 @@
   /**
    * Define all the default validations
    */
-  FieldValidator.addArr([]);
+  EasyValidator.addValidations([]);
 
 
   /**
@@ -63,7 +63,7 @@
 
         var classes = $field.attr('class') ? $field.attr('class').split(' ') : [];
         $(classes).each(function(i, className) {
-          validationMsg = validationMsg || FieldValidator.getValidationMsg($field.val(), className);
+          validationMsg = validationMsg || EasyValidator.getValidationMsg($field.val(), className);
           if (validationMsg) isValid = false;
         });
 
@@ -126,6 +126,6 @@
 
       init();
     });
-  };
+  });
 
 })(jQuery);

@@ -35,9 +35,60 @@
      * Define all the default validations
      */
     EasyValidator.addValidations([
-        ['required', 'This is a required field.',
+        ['required', 'This field is required.',
             function (v) {
-                return !Valid8.isEmpty(v);
+                return !EasyValidator.isEmpty(v);
+            }
+        ],
+        ['validate-number', 'Please enter a valid number.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || (!isNaN(v) && !/^\s+$/.test(v));
+            }
+        ],
+        ['validate-digits', 'Please use numbers only in this field. Avoid spaces or other characters such as dots or commas.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || !/[^\d]/.test(v);
+            }
+        ],
+        ['validate-currency-dollar', 'Please enter a valid $ amount. For example $100.00.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || /^\$?\-?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}\d*(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/.test(v);
+            }
+        ],
+        ['validate-selection', 'Please make a selection',
+            function(v, elm) {
+                return elm.options ? elm.selectedIndex > 0 : !EasyValidator.isEmpty(v);
+            }
+        ],
+        ['validate-url', 'Please enter a valid URL.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v);
+            }
+        ],
+        ['validate-email', 'Please enter a valid email address. For example test@example.com.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || /\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/.test(v);
+            }
+        ],
+        ['validate-date', 'Please use this date format: dd/mm/yyyy. For example 17-03-2006 for the 17th of March, 2006.',
+            function(v) {
+                if (EasyValidator.isEmpty(v)) return true;
+                var regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+                if (!regex.test(v)) return false;
+                var d = new Date(v);
+                return (parseInt(RegExp.$2, 10) == (1 + d.getMonth())) &&
+                    (parseInt(RegExp.$1, 10) == d.getDate()) &&
+                    (parseInt(RegExp.$3, 10) == d.getFullYear());
+            }
+        ],
+        ['validate-alphanum', 'Please use only letters (a-z) or numbers (0-9) only in this field. No spaces or other characters are allowed.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || !/\W/.test(v);
+            }
+        ],
+        ['validate-alpha', 'Please use letters only (a-z) in this field.',
+            function(v) {
+                return EasyValidator.isEmpty(v) || /^[a-zA-Z]+$/.test(v);
             }
         ]
     ]);

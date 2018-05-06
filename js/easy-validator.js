@@ -1,14 +1,44 @@
 (function ($) {
+    /**
+     * Easy Validator.
+     *
+     * Here you can add your own validations, or set up your own methods to work.
+     * You can determine whether or not fields are valid and code specific actions to your needs.
+     *
+     * Or you can use the base functionality, which still provides tons.
+     */
     this.EasyValidator = {
         validators: [],
+
+        /**
+         * Add a validation to the validator.
+         *
+         * @param name {String} The validation name. To use this validation, add the given to the input class.
+         * @param msg {String} The message to be displayed if the input is not valid.
+         * @param validatorFunc {Function} takes one parameter - the value of the input. Determine if the value if valid.
+         */
         add: function (name, msg, validatorFunc) {
             EasyValidator.validators.push({name: name, msg: msg, do: validatorFunc});
         },
+
+        /**
+         * Add a list of validations to the validator.
+         *
+         * @param arr {Array} of validations.
+         */
         addValidations: function (arr) {
             for (var i = 0; i < arr.length; i++) {
                 EasyValidator.validators.push(arr[i]);
             }
         },
+
+        /**
+         * Get the validation message of val against the validation of className.
+         *
+         * @param val {*} the value of the input.
+         * @param className {String} the validation name.
+         * @returns {String || null} will be a string if the value is invalid, null if valid.
+         */
         getValidationMsg: function (val, className) {
             for (var i = EasyValidator.validators.length - 1; i >= 0; i--) {
                 var validator = EasyValidator.validators[i];
@@ -18,6 +48,13 @@
             }
             return null;
         },
+        /**
+         * Determine if the value of the input is valid against the validation of className.
+         *
+         * @param val {*} the value of the input.
+         * @param className {String} the validation name.
+         * @returns {boolean} if the input value is valid or not
+         */
         isValid: function (val, className) {
             for (var i = EasyValidator.validators.length - 1; i >= 0; i--) {
                 var validator = EasyValidator.validators[i];
@@ -26,6 +63,13 @@
             }
             return true;
         },
+
+        /**
+         * Determine if value is null or empty.
+         *
+         * @param v {*} The value
+         * @returns {boolean}
+         */
         isEmpty: function (v) {
             return ((v === null) || (v.length === 0));
         }
@@ -135,7 +179,7 @@
 
             var validateAllFields = function () {
                 $form.find(':input').each(function () {
-                    checkField($(this));
+                    validateField($(this));
                 });
             };
 
@@ -143,12 +187,14 @@
                 $form.find(':input').each(function () {
                     var $input = $(this);
                     $input.change(function (e) {
-                        checkField($input);
+                        validateField($input);
                     });
                 });
             };
 
-            // Disable the submit button if any errors are present
+            /**
+             * Disable the submit button if any errors are present
+             */
             var enableOrDisableSubmit = function () {
                 $form.change(function (e) {
                     if ($form.find('.has-error').length > 0) {
@@ -159,7 +205,9 @@
                 });
             };
 
-            // Validate all fields upon submit
+            /**
+             * Validate all fields upon submit
+             */
             var validateFieldsOnSubmit = function () {
                 $form.on('submit', function () {
                     var $submit = $form.find('[type=submit]');

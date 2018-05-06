@@ -54,3 +54,11 @@ You can create custom validations by using the easy-validator api.
 Click [here](http://jacobsteves.ca/easy-validator) for a live demo.
 
 ![Demo gif](demo/images/signupPage.png)
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jacobsteves/easy-validator/tags).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

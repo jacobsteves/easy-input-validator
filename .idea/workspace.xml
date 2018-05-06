@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72ef6509-2568-40a2-a283-60e42b77821d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/demo/index.html" afterPath="$PROJECT_DIR$/demo/index.html" />
       <change beforePath="$PROJECT_DIR$/js/easy-validator.js" afterPath="$PROJECT_DIR$/js/easy-validator.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,13 +17,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="easy-validator.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="easy-validator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/easy-validator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="186" column="41" lean-forward="false" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="41" />
+            <state relative-caret-position="1500">
+              <caret line="100" column="10" lean-forward="false" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
               <folding>
-                <marker date="1525641114270" expanded="true" signature="6262:6275" ph="..." />
+                <marker date="1525642939916" expanded="true" signature="6276:6289" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="728">
+              <caret line="136" column="39" lean-forward="false" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,6 +59,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/easy-validator.js" />
+        <option value="$PROJECT_DIR$/demo/index.html" />
       </list>
     </option>
   </component>
@@ -81,6 +96,11 @@
             <path>
               <item name="form-field-validator" type="b2602c69:ProjectViewProjectNode" />
               <item name="form-field-validator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="form-field-validator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="form-field-validator" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="form-field-validator" type="b2602c69:ProjectViewProjectNode" />
@@ -125,12 +145,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525639613713</updated>
-      <workItem from="1525639614981" duration="1521000" />
+      <workItem from="1525639614981" duration="3961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1521000" />
+    <option name="totallyTimeSpent" value="3961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -170,10 +190,21 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/easy-validator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="186" column="41" lean-forward="false" selection-start-line="186" selection-start-column="39" selection-end-line="186" selection-end-column="41" />
+        <state relative-caret-position="1500">
+          <caret line="100" column="10" lean-forward="false" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
           <folding>
-            <marker date="1525641114270" expanded="true" signature="6262:6275" ph="..." />
+            <marker date="1525642939916" expanded="true" signature="6276:6289" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="136" column="39" lean-forward="false" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -31,9 +31,91 @@
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1>A Bootstrap Valid8 Form Example</h1>
-                    <div class="container">
+                <h1>Easy Validator</h1>
+                <div class="container">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-default">
+                            <form id="signupform" class="form-horizontal form-field-validation" role="form">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Sign Up For Easy Validation</div>
+                                </div>
+                                <div class="panel-body" >
+
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-md-3 control-label">Email</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control validate-email required" name="email" placeholder="Email Address">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name" class="col-md-3 control-label">Full Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control validate-alpha required" name="name" placeholder="Full Name (letters only)">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="username" class="col-md-3 control-label">Username</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control validate-alphanum required" name="username" placeholder="Alphanumeric username">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-3 control-label">Password</label>
+                                        <div class="col-md-9">
+                                            <input type="password" class="form-control validate-alphanum required" name="passwd" placeholder="Password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="select" class="col-md-3 control-label">Favourite Dog</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control validate-selection required" name="select">
+                                                <option></option>
+                                                <option>Golden Retriever</option>
+                                                <option>Australian Shepherd</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="age" class="col-md-3 control-label">Age</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control validate-number" name="age" placeholder="Numeric">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="birthday" class="col-md-3 control-label">Date of Birth</label>
+                                        <div class="col-md-9">
+                                            <input type="date" class="form-control validate-date-au date" name="birthday" placeholder="Example: dd-mm-yyyy">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="website" class="col-md-3 control-label">Website</label>
+                                        <div class="col-md-9">
+                                            <input type="url" class="form-control validate-url" name="url" placeholder="www.example.com">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer">
+                                    <button id="btn-signup" class="btn btn-success" type="submit">Sign Me Up</button>
+                                </div>
+                        </div>
+                        </form>
                     </div>
+                </div>
+
             </div>
         </div>
         <!-- /.row -->
@@ -49,6 +131,16 @@
 
 
     <script src="../js/easy-validator.js"></script>
+
+    <script>
+        /**
+         * This is a custom validation!
+         * Read the documentation for usage.
+         */
+        EasyValidator.add("validate-selection", "That is impossible.", function(val) {
+            return val !== "Other";
+        })
+    </script>
 
 </body>
 

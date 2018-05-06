@@ -28,7 +28,7 @@
          */
         addValidations: function (arr) {
             for (var i = 0; i < arr.length; i++) {
-                EasyValidator.validators.push(arr[i]);
+                EasyValidator.add(arr[i][0], arr[i][1], arr[i][2]);
             }
         },
 
@@ -99,11 +99,6 @@
                 return EasyValidator.isEmpty(v) || /^\$?\-?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}\d*(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/.test(v);
             }
         ],
-        ['validate-selection', 'Please make a selection',
-            function(v, elm) {
-                return elm.options ? elm.selectedIndex > 0 : !EasyValidator.isEmpty(v);
-            }
-        ],
         ['validate-url', 'Please enter a valid URL.',
             function(v) {
                 return EasyValidator.isEmpty(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v);
@@ -144,6 +139,10 @@
     $(document).ready(function () {
         $('.form-field-validation').each(function () {
             var $form = $(this);
+
+            var createInvalidCss = function () {
+                $('body').append("<style> .validation-msg { color: red; margin-left: 7px; font-size: 80%; text-align: left; } </style>");
+            };
 
             var validate = function ($field) {
                 $field.addClass('valid-input').removeClass("invalid-input").parent().removeClass('has-error');
@@ -222,10 +221,10 @@
                 });
             };
 
+            createInvalidCss();
             addInputValidators();
             enableOrDisableSubmit();
             validateFieldsOnSubmit();
-
         });
     });
 

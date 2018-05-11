@@ -5,11 +5,19 @@ A jQuery module that validates form fields. You can create your own validations 
 - Jquery >= 1.11.1
 
 ## Installation
+### Cloning the File
 1. Clone this repository or simply download either `js/easy-validator.js` or `js/easy-validator.min.js`.
     - Note: `easy-validator.min.js` is a minified version of `js/easy-validator.js`. This means that it is a smaller file. If you want to update the scripts contents, then copy `js/easy-validator.js`. Otherwise, download the minified version.
 2. Include the file in your project
 ```html
 <script src="your/path/to/easy-validator.min.js"></script>
+```
+
+### Using Alternative Hosting
+If you do not want to clone the file, the file is also hosted on my website. To import the script using this hosting, include this within your project:
+
+```html
+<script src="http://jacobsteves.ca/easy-validator/js/easy-validator.min.js"></script>
 ```
 
 ## Usage

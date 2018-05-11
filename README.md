@@ -17,7 +17,7 @@ A jQuery module that validates form fields. You can create your own validations 
 If you do not want to clone the file, the file is also hosted on my website. To import the script using this hosting, include this within your project:
 
 ```html
-<script src="http://jacobsteves.ca/easy-validator/js/easy-validator.min.js"></script>
+<script src="http://jacobsteves.ca/software/easy-validator/js/easy-validator.min.js"></script>
 ```
 
 ## Usage

@@ -59,7 +59,7 @@ You can create custom validations by using the easy-validator api.
 | validate-alpha           | Letters only field.           | Please use letters only (a-z) in this field. |
 
 ## Demo
-Click [here](http://jacobsteves.ca/easy-validator) for a live demo.
+Click [here](http://jacobsteves.ca/software/easy-validator) for a live demo.
 
 ![Demo gif](demo/images/signupPage.png)
 

@@ -13,13 +13,6 @@ A jQuery module that validates form fields. You can create your own validations 
 <script src="your/path/to/easy-validator.min.js"></script>
 ```
 
-### Using Alternative Hosting
-If you do not want to clone the file, the file is also hosted on my website. To import the script using this hosting, include this within your project:
-
-```html
-<script src="http://jacobsteves.ca/software/easy-validator/js/easy-validator.min.js"></script>
-```
-
 ## Usage
 You must simply add the validation name to the class of the input you want to validate.
 
@@ -34,7 +27,7 @@ You must simply add the validation name to the class of the input you want to va
 </script>
 ```
 
-You can create custom validations by using the easy-validator api. 
+You can create custom validations by using the easy-validator api.
 
 #### API
 | EasyValidator Method | Parameters |
